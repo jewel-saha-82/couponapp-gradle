@@ -1,0 +1,27 @@
+subprojects {
+    apply plugin: 'application'
+
+    version = 1.0
+    group = 'com.js.prac'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation 'junit:junit:4.13.2'
+
+    }
+}
+
+project(':web') {
+    dependencies {
+        implementation project(':service')
+    }
+}
+
+project(':service') {
+    dependencies {
+        implementation project(':integration')
+    }
+}
