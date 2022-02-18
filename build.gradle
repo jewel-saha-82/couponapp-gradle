@@ -1,3 +1,25 @@
+import com.bharath.gradle.MyAzurePlugin
+
+class MyAwsPlugin implements Plugin<Project> {
+
+    @Override
+    void apply(Project project) {
+        project.task("copyToS3") {
+            doLast {
+                println "File copied to S3."
+            }
+        }
+        project.task("deployToEC2") {
+            doLast {
+                println "App deployed to EC2."
+            }
+        }
+    }
+}
+
+apply plugin: MyAwsPlugin
+apply plugin: MyAzurePlugin
+
 subprojects {
     apply plugin: 'application'
 
